@@ -40,5 +40,5 @@ build/
 ### VS Code ###
 .vscode/
 
-## Custom ###
+### Custom ###
 **/.env
