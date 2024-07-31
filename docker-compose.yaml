@@ -25,3 +25,21 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+
+  ##################################################################################################################
+  ########################################### Data Bases ###########################################################
+  ##################################################################################################################
+  payment-db:
+    image: 'postgres:16'
+    container_name: 'payment-db'
+    environment:
+      - POSTGRES_USER=payment
+      - POSTGRES_PASSWORD=payment
+      - POSTGRES_DB=paymentdb
+    ports:
+      - '5433:5432'
+    volumes:
+      - './payment-service/init-payment.sql:/docker-entrypoint-initdb.d/init.sql'
+    command: "postgres -c wal_level=logical"
