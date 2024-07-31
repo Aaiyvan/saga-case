@@ -15,12 +15,24 @@
 
     <properties>
         <java.version>21</java.version>
+        <hypersistence-utils-hibernate-62.version>3.6.1</hypersistence-utils-hibernate-62.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-utils-hibernate-62</artifactId>
+            <version>${hypersistence-utils-hibernate-62.version}</version>
         </dependency>
     </dependencies>
 
