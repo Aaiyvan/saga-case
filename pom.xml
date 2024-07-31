@@ -13,6 +13,7 @@
     <groupId>dev.aaiyvan</groupId>
     <artifactId>saga-case</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
         <java.version>21</java.version>
@@ -76,6 +77,7 @@
 
     <modules>
         <module>transactional-outbox</module>
+        <module>payment-service</module>
     </modules>
 
     <build>
