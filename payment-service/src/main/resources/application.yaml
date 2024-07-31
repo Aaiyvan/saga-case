@@ -1,1 +1,39 @@
-spring.application.name=payment-service
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/paymentdb
+    driver-class-name: org.postgresql.Driver
+    username: payment
+    password: payment
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+
+  kafka:
+    bootstrap-servers: http://localhost:9092
+    client-id: payment-service
+    consumer:
+      group-id: payment-service
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+    listener:
+      concurrency: 1
+      missing-topics-fatal: true
+    topic:
+      inbox:
+        events:
+          name: payment.inbox.events
+          partitions: 1
+          replicas: 1
+      outbox:
+        events:
+          name: payment.outbox.events
+          partitions: 1
+          replicas: 1
+
+
