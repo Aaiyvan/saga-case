@@ -74,6 +74,10 @@
         </dependencies>
     </dependencyManagement>
 
+    <modules>
+        <module>transactional-outbox</module>
+    </modules>
+
     <build>
         <plugins>
             <plugin>
