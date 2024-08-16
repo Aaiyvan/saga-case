@@ -22,3 +22,4 @@
   "transforms.outbox.table.fields.additional.placement" : "type:header:eventType",
   "poll.interval.ms": "100"
 }
+
