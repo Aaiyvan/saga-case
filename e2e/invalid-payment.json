@@ -1,0 +1,9 @@
+{
+  "inventoryId": 1,
+  "orderId": 3,
+  "startDate": "2024-12-16",
+  "endDate": "2024-12-17",
+  "customerId": 10000001,
+  "paymentDue": 1702632793441,
+  "creditCardNo": "************9999"
+}
