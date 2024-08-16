@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5434}/${POSTGRES_DB_NAME:paymentdb}
+    username: ${POSTGRES_DB_USER:aaiyvan}
+    password: ${POSTGRES_DB_PASSWORD:aaiyvan}
+
+  jpa.show-sql: true
+
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVERS:PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092}
+    client-id: payment-service
+    consumer:
+      group-id: payment-service
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+    listener:
+      concurrency: 1
+      missing-topics-fatal: true
+    topic:
+      inbox:
+        events:
+          name: payment.inbox.events
+          partitions: 1
+          replicas: 1
+      outbox:
+        events:
+          name: payment.outbox.events
+          partitions: 1
+          replicas: 1
